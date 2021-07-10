@@ -6,12 +6,12 @@ import Kernel from '../system/kernel';
 // Component class
 class Component {
   // Constructor
-  private parent: Kernel;
+  private _parent: Kernel;
   public name: string;
 
   public constructor(parent: Kernel, name?: string) {
     // Properties
-    this.parent = parent;
+    this._parent = parent;
     this.name = !!name ? name : this.constructor.name.toLowerCase();
   }
 
@@ -19,7 +19,7 @@ class Component {
 
   // Find relative component
   find(comp: ComponentOption): Component {
-    return this.parent[comp];
+    return this._parent[comp];
   }
 }
 

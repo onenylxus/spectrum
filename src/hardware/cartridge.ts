@@ -9,7 +9,7 @@ class Cartridge extends Hardware {
   // Constructor
   public constructor(parent: Computer) {
     // Super
-    super(parent, 'cart');
+    super(parent, 'cartridge');
   }
 }
 

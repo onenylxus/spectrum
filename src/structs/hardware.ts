@@ -7,13 +7,13 @@ import Computer from '../system/computer';
 // Hardware class
 class Hardware {
   // Constructor
-  private parent: Computer;
+  private _parent: Computer;
   public name: string;
   public connections: List<Hardware>;
 
   public constructor(parent: Computer, name?: string) {
     // Properties
-    this.parent = parent;
+    this._parent = parent;
     this.name = !!name ? name : this.constructor.name.toLowerCase();
     this.connections = {};
   }
@@ -22,9 +22,9 @@ class Hardware {
 
   // Connect hardware
   public connect(hdwr: HardwareOption): void {
-    if (!this.connections.hasOwnProperty(hdwr)) {
-      this.connections[hdwr] = this.parent[hdwr];
-      this.parent[hdwr].connections[this.name] = this;
+    if (!this.connections.hasOwnProperty(hdwr) && this._parent[hdwr] !== null) {
+      this.connections[hdwr] = this._parent[hdwr]!;
+      this._parent[hdwr]!.connections[this.name] = this;
     }
   }
 
@@ -43,7 +43,7 @@ class Hardware {
 
   // Use relative component
   public use(comp: ComponentOption): Component {
-    return this.parent.find(comp);
+    return this._parent.find(comp);
   }
 }
 

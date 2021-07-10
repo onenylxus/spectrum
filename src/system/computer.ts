@@ -20,8 +20,9 @@ class Computer extends Component {
   public ppu: PPU;
   public ram: RAM;
 
-  public cart: Cartridge | null;
-  public ctrl: Controller[];
+  public cartridge: Cartridge | null;
+  public controllerA: Controller;
+  public controllerB: Controller | null;
 
   public ticks: number;
 
@@ -37,8 +38,9 @@ class Computer extends Component {
     this.ram = new RAM(this);
 
     // External hardware
-    this.cart = null;
-    this.ctrl = [];
+    this.cartridge = null;
+    this.controllerA = new Controller(this);
+    this.controllerB = null;
 
     // Properties
     this.ticks = 0;

@@ -1,4 +1,5 @@
 // Import
+import Tone from 'tone';
 import Component from '../structs/component';
 import Kernel from './kernel';
 
@@ -10,6 +11,14 @@ class Audio extends Component {
   public constructor(parent: Kernel) {
     // Super
     super(parent, 'audio');
+  }
+
+  /* ------------------------ division ------------------------ */
+
+  // Play synth sound
+  public play(freq: Tone.Unit.Frequency, time: Tone.Unit.Time) {
+    const synth: Tone.Synth = new Tone.Synth().toDestination();
+    synth.triggerAttackRelease(freq, time);
   }
 }
 
