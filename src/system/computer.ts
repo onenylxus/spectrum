@@ -11,15 +11,15 @@ import ROM from '../hardware/rom';
 
 // Computer class
 class Computer extends Component {
-  private apu: APU;
-  private bus: Bus;
-  private ctrl1: Controller | null;
-  private ctrl2: Controller | null;
-  private cpu: CPU;
-  private cpuram: RAM;
-  private ppu: PPU;
-  private ppuram: RAM;
-  private rom: ROM | null;
+  public apu: APU;
+  public bus: Bus;
+  public ctrl1: Controller | null;
+  public ctrl2: Controller | null;
+  public cpu: CPU;
+  public cpuram: RAM;
+  public ppu: PPU;
+  public ppuram: RAM;
+  public rom: ROM | null;
 
   // Constructor
   public constructor(parent: Kernel) {
@@ -36,6 +36,15 @@ class Computer extends Component {
     this.ppu = new PPU(this);
     this.ppuram = new RAM(this, 'ppu');
     this.rom = null;
+
+    // Initial reset
+    this.reset();
+  }
+
+  // Reset function
+  public reset() {
+    this.bus.connect('cpu');
+    this.bus.connect('cpuram');
   }
 }
 

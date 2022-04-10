@@ -12,15 +12,15 @@ class Hardware {
   public parent: Computer;
   public name: string;
   private connections: Map<string, Hardware>;
-  protected cache: Cache;
+  protected cache: Cache | null;
 
   // Constructor
-  public constructor(parent: Computer, name?: string) {
+  public constructor(parent: Computer, name?: string, useCache: boolean = false) {
     // Properties
     this.parent = parent;
     this.name = !!name ? name : this.constructor.name.toLowerCase();
     this.connections = new Map();
-    this.cache = new Cache();
+    this.cache = useCache ? new Cache() : null;
   }
 
   // Connect hardware

@@ -1,6 +1,6 @@
 // Import
-import Hardware from '../structs/hardware';
 import Computer from '../system/computer';
+import Hardware from '../structs/hardware';
 
 // PPU class
 class PPU extends Hardware {

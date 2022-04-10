@@ -1,16 +1,17 @@
 // Import
-import Hardware from '../structs/hardware';
 import Computer from '../system/computer';
+import Hardware from '../structs/hardware';
 
 // Types
 type ButtonType = 'a' | 'b' | 'select' | 'start' | 'up' | 'down' | 'left' | 'right';
+type PortType = 1 | 2;
 
 // Controller class
 class Controller extends Hardware {
   private keybinds: Map<ButtonType, string>;
 
   // Constructor
-  public constructor(parent: Computer, port: 1 | 2) {
+  public constructor(parent: Computer, port: PortType) {
     // Super
     super(parent, `ctrl${port}`);
 

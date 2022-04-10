@@ -9,8 +9,9 @@ const App = () => {
 
   // Use effect
   React.useEffect(() => {
-    const Spectrum = new Kernel();
-    Spectrum.start();
+    const spectrum = new Kernel();
+    spectrum.start();
+    console.log(spectrum);
   });
 
   // Return

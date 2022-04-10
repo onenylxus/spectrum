@@ -8,12 +8,12 @@ import Input from './input';
 
 // Kernel class
 class Kernel {
-  private audio: Audio;
-  private clock: Clock;
-  private computer: Computer;
-  private console: Console;
-  private graphics: Graphics;
-  private input: Input;
+  public audio: Audio;
+  public clock: Clock;
+  public computer: Computer;
+  public console: Console;
+  public graphics: Graphics;
+  public input: Input;
   public active: boolean;
   public ticks: number;
 
@@ -40,7 +40,7 @@ class Kernel {
 
   // Toggle function
   public toggle(): void {
-    (this.active ? this.pause : this.resume)();
+    (this.active ? this.pause : this.resume).bind(this)();
   }
 
   // Pause function
