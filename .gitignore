@@ -3,9 +3,9 @@
 /.pnp
 .pnp.js
 
-# Cartridges
-/public/cartridges/*
-!/public/cartridges/.gitkeep
+# ROMs
+/public/roms/*
+!/public/roms/.gitkeep
 
 # Testing
 /coverage
