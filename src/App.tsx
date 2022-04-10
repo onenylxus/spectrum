@@ -17,7 +17,7 @@ const App = () => {
   return (
     <React.StrictMode>
       <div className="App">
-        <canvas ref={canvasRef}></canvas>
+        <canvas className="Screen" ref={canvasRef}></canvas>
       </div>
     </React.StrictMode>
   );

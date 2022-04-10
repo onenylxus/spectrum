@@ -2,7 +2,7 @@
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './style.css';
+import './assets/style.css';
 
 // Start application
 const container = document.getElementById('root') as (Element | DocumentFragment);
