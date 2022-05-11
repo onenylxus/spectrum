@@ -1,5 +1,4 @@
 // Import
-import Cache from './cache';
 import Component from './component';
 import Computer from '../system/computer';
 
@@ -12,15 +11,13 @@ class Hardware {
   public parent: Computer;
   public name: string;
   private connections: Map<string, Hardware>;
-  protected cache: Cache | null;
 
   // Constructor
-  public constructor(parent: Computer, name?: string, useCache: boolean = false) {
+  public constructor(parent: Computer, name?: string) {
     // Properties
     this.parent = parent;
     this.name = !!name ? name : this.constructor.name.toLowerCase();
     this.connections = new Map();
-    this.cache = useCache ? new Cache() : null;
   }
 
   // Connect hardware
@@ -45,7 +42,7 @@ class Hardware {
   }
 
   // Use relative component
-  public use(comp: ComponentType): Component {
+  public use(comp: ComponentType): Component | null {
     return this.parent.find(comp);
   }
 }

@@ -6,19 +6,19 @@ type ComponentType = 'audio' | 'clock' | 'computer' | 'console' | 'graphics' | '
 
 // Component class
 class Component {
-  public parent: Kernel;
+  public parent: Kernel | null;
   public name: string;
 
   // Constructor
-  public constructor(parent: Kernel, name?: string) {
+  public constructor(parent: Kernel | null, name?: string) {
     // Properties
     this.parent = parent;
     this.name = !!name ? name : this.constructor.name.toLowerCase();
   }
 
   // Find relative component
-  find(comp: ComponentType): Component {
-    return this.parent[comp];
+  find(comp: ComponentType): Component | null {
+    return !!this.parent ? this.parent[comp] : null;
   }
 }
 

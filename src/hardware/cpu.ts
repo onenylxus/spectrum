@@ -1,6 +1,7 @@
 // Import
 import Assembly from '../software/assembly';
 import Bus from './bus';
+import Cache from '../structs/cache';
 import Computer from '../system/computer';
 import Factory from '../software/factory';
 import Flag from '../structs/flag';
@@ -12,15 +13,17 @@ const cpuFlag = new Flag('cpu');
 
 // CPU class
 class CPU extends Hardware {
+  public cache: Cache;
   public instruction: Instruction | null;
   public cycles: number;
 
   // Constructor
   public constructor(parent: Computer) {
     // Super
-    super(parent, 'cpu', true);
+    super(parent, 'cpu');
 
     // Properties
+    this.cache = new Cache(6, 3);
     this.instruction = null;
     this.cycles = 0;
   }
